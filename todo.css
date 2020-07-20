@@ -1,0 +1,28 @@
+* {
+    box-sizing: border-box;
+}
+
+body, h1 {
+    margin: 0;
+    border: 0;
+}
+
+body {
+    text-align: center;
+}
+
+.appName {
+    margin: 30px;
+}
+
+.contents {
+    margin: 30px auto;
+    max-width: 500px;
+    width: 70%;
+}
+
+.card {
+    margin: 20px;
+    border: 1px black solid;
+    border-left: 10px #34558b solid;
+}
