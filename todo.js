@@ -36,7 +36,7 @@ function addNewTodo() {
     const newTodoCard = createTodoCard(title);
     const contentsArea = document.getElementsByClassName("contents")[0]
     document.getElementById("title").value = "";
-    contentsArea.appendChild(newTodoCard);
+    contentsArea.prepend(newTodoCard);
 }
 
 // 엔터키를 누를 경우 addNewTodo 함수를 실행
