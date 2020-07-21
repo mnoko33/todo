@@ -7,6 +7,7 @@ const contentsArea = document.getElementsByClassName("contents")[0]
 contentsArea.addEventListener("click", function(e) {
     const target = e.target
     if (target.id === "deleteBtn") deleteCard(target);
+    if (target.id === "confirmBtn") confirmCard(target);
 })
 
 // 당일 날짜를 yyyy-mm-dd 형식으로 가져오는 함수
@@ -66,16 +67,44 @@ function createTodoCard(title) {
     const targetDate = getDate();
     targetDateArea.classList.add("targetDate")
     targetDateArea.innerText = `생성날짜 : ${targetDate}`;
+    
+    const confirmBtn = document.createElement("button");
+    confirmBtn.id = "confirmBtn";
+    confirmBtn.classList.add('pre-done');
+    confirmBtn.innerText = "V";
 
     const deleteBtn = document.createElement("button");
     deleteBtn.id = "deleteBtn";
     deleteBtn.innerText = "X";
 
-    card.appendChild(titleArea)
-    card.appendChild(targetDateArea)
-    card.appendChild(deleteBtn)
+    card.appendChild(titleArea);
+    card.appendChild(targetDateArea);
+    card.appendChild(confirmBtn);
+    card.appendChild(deleteBtn);
     
     return card;
+}
+
+// card 완료 토글 함수
+function confirmCard(target) {
+    const card = target.parentNode;
+    const title = card.childNodes[0];
+    
+    // title 글자 취소선 토글
+    if (title.classList.contains('done')) {
+        title.classList.remove('done');
+    } else {
+        title.classList.add('done');
+    }
+
+    // confirm 버튼 색깔 토글
+    if (target.classList.contains('pre-done')) {
+        target.classList.remove('pre-done');
+        target.classList.add('after-done');
+    } else {
+        target.classList.remove('after-done');
+        target.classList.add('pre-done');
+    }
 }
 
 // card를 삭제하는 함수

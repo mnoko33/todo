@@ -26,3 +26,26 @@ body {
     border: 1px black solid;
     border-left: 10px #34558b solid;
 }
+
+#confirmBtn, #deleteBtn {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 1px solid;
+}
+
+#deleteBtn {
+    color: red;
+}
+
+.done {
+    text-decoration: line-through;
+}
+
+.pre-done {
+    color: #01cd74;
+}
+
+.after-done {
+    color: gray;
+}
